@@ -18,7 +18,7 @@
 
 > 可以看到，即使使用了相同的初始化参数，第二次模拟也不能保证所有粒子按照颜色落入相应的桶中，这说明计算过程中出现了误差或者出现了逻辑上的错误。
 
-> 随后我记录下第一次模拟在第 $15000$ 时间步时第 $i$ 个粒子的速度 $v_i$，对之后每一次重启后的模拟记录第 $15000$ 时间步时第 $i$ 个粒子的速度 $u_i$，令$Err_i = \frac{||v_i-u_i||^2}{||v_i||^2+1e-6}$。从后面的图表可以得知，对结果造成较大误差的粒子出现的位置比较固定，多次模拟中误差的数量分布有相同的特征。
+> 随后我记录下第一次模拟在第 15000 时间步时第 <img src="https://latex.codecogs.com/svg.image?i&space;" title="i " />个粒子的速度 <img src="https://latex.codecogs.com/svg.image?v_i&space;" title="v_i " />，对之后每一次重启后的模拟记录第 15000 时间步时第 <img src="https://latex.codecogs.com/svg.image?i&space;" title="i " />个粒子的速度 <img src="https://latex.codecogs.com/svg.image?u_i&space;" title="u_i " />，令<img src="https://latex.codecogs.com/svg.image?Err_i&space;=&space;\frac{||v_i-u_i||^2}{||v_i||^2&plus;1e-6}" title="Err_i = \frac{||v_i-u_i||^2}{||v_i||^2+1e-6}" />。从后面的图表可以得知，对结果造成较大误差的粒子出现的位置比较固定，多次模拟中误差的数量分布有相同的特征。
 
 > ![skittles](./data/skittle.gif)
 
@@ -37,4 +37,4 @@
 
 ## 实现细节：
 
-> 在网格上处理碰撞，对于需要处理碰撞的网格上的速度 $v_{i,j}$，令$v_n \leftarrow(v_n\cdot e_n)e_n, v_T \leftarrow v_{i,j}-v_n$，随后令 $v_n \leftarrow-\mu v_n, v_{i,j}\leftarrow v_n+v_T$，具体实现里取了 $\mu=0$。
+> 在网格上处理碰撞，对于需要处理碰撞的网格上的速度 <img src="https://latex.codecogs.com/svg.image?v_{i,j}" title="v_{i,j}" />，令<img src="https://latex.codecogs.com/svg.image?v_n&space;\leftarrow(v_n\cdot&space;e_n)e_n,&space;v_T&space;\leftarrow&space;v_{i,j}-v_n" title="v_n \leftarrow(v_n\cdot e_n)e_n, v_T \leftarrow v_{i,j}-v_n" />，随后令<img src="https://latex.codecogs.com/svg.image?v_n&space;\leftarrow-\mu&space;v_n,&space;v_{i,j}\leftarrow&space;v_n&plus;v_T" title="v_n \leftarrow-\mu v_n, v_{i,j}\leftarrow v_n+v_T" /><img src="https://latex.codecogs.com/svg.image?v_n&space;\leftarrow-\mu&space;v_n,&space;v_{i,j}\leftarrow&space;v_n&plus;v_T" title="v_n \leftarrow-\mu v_n, v_{i,j}\leftarrow v_n+v_T" />，具体实现里取了<img src="https://latex.codecogs.com/svg.image?\mu=0" title="\mu=0" />。
